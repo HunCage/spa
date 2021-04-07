@@ -6,7 +6,24 @@ export function InstrumentCreatePage() {
     return (
         <div className="p-5 content bg-whitesmoke text-center">
         <h2>Új hangszer</h2>
-        <form>
+        <form onSubmit={(e) => {
+            e.persist();
+            e.preventDefault();
+            fetch("https://kodbazis.hu/api/instruments", {
+            method: "POST",
+            credentials: "include",
+            body: JSON.stringify({
+                name: e.target.elements.name.value,
+                price: e.target.elements.price.value,
+                quantity: e.target.elements.quantity.value,
+                imageURL: e.target.elements.imageURL.value,
+            }),
+        })
+            .then(() => {
+                history.push("/");
+            })
+            .catch(console.log);
+        }}>
             <div className="form-group row pb-3">
             <label className="col-sm-3 col-form-label">Név:</label>
             <div className="col-sm-9">
