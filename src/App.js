@@ -1,6 +1,8 @@
 import { BrowserRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import './App.css';
 import { InstrumentListPage } from "./InstrumentListPage";
+import { InstrumentSinglePage } from "./InstrumentSinglePage";
+import { InstrumentCreatePage } from "./InstrumentCreatePage";
 
 function App() {
   return (
@@ -25,12 +27,9 @@ function App() {
       <Switch>
         <Route path="/" exact component={ InstrumentListPage } />
 
-        <Route path="/instrument/:instrumentId">
-          Instrument subpage
-        </Route>
-        <Route path="/new-instrument">
-          New Instrument add
-        </Route>
+        <Route path="/instrument/:instrumentId" component={InstrumentSinglePage} />
+
+        <Route path="/new-instrument" component={InstrumentCreatePage} />
         <Redirect to={"/"} />
       </Switch>
     </BrowserRouter>

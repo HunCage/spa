@@ -32,7 +32,7 @@ export function InstrumentListPage() {
                                 <div>{instrument.price} ft -</div>
                                 <div className="small">Készleten: {instrument.quantity} db</div>
                                 <div className="card-body">
-                                    <img className="img-fluid" style={{ maxHeight: 200 }} src={instrument.imageURL ? instrument.imageURL : "https://via.placeholder.com/400x800"} />
+                                    <img className="img-fluid" alt="Gitarre" style={{ maxHeight: 200 }} src={instrument.imageURL ? instrument.imageURL : "https://via.placeholder.com/400x800"} />
                                 </div>
                             </div>
                         </NavLink>
